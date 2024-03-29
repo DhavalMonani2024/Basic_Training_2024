@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+        table{
+            text-align: center;
+            background-color: teal;
+        }
+        a{
+            text-decoration: none;
+            color:white;
+        }
+        a:hover{
+            background-color: aqua;
+            color:black;
+        }
+    </style>
+    <script type="text/javascript">
+       let data;
+       let max;
+       let min = 1;
+       var maxdata;
+       async function fetchdata()
+       {
+            try{
+                const response = await fetch('https://jsonplaceholder.org/posts');
+                const data = await response.json();
+                return data;
+            }
+            catch(e)
+            {
+                console.log(e);
+            }
+       }
+       async function allData()
+       {
+            data = await fetchdata();
+            maxdata = Math.ceil(data.length/10);
+            readData(data);
+       }
+       function readData(data,start = 0,end = 10)
+       {
+            data = data.slice(start,end)
+            if(!data)
+            {
+                return;
+            }   
+            var table = document.getElementById('table');
+            data.forEach(element => {
+                var tr = document.createElement('tr');
+                tr.innerHTML = ` <td>${element.id}</td>
+                <td>${element.title}</td>
+                <td><img src='${element.thumbnail}' alt='thumbnail'></td>
+                <td>${element.status}</td>
+                <td>${element.category}</td>
+                <td><a href='/Data?Id=${element.id}'>View More</a></td>`;
+                table.appendChild(tr);
+            });
+
+        }
+       function next()
+       {
+            clearRows();
+            let pgno = Number(document.getElementById('page').value);
+            pgno+=1;
+            let end = pgno*10;
+            let start = end-10;
+            readData(data,start,end);
+            document.getElementById('page').value = pgno;
+       }
+       function prev()
+       {
+            clearRows();
+            let pgno = Number(document.getElementById('page').value);
+            pgno-=1;
+            let end = pgno*10;
+            let start = end-10;
+            readData(data,start,end);
+            document.getElementById('page').value = pgno;
+       }
+       function clearRows()
+       {
+            var table = document.getElementById('table');
+            while(table.rows.length > 1)
+            {
+                table.deleteRow(1);
+            }
+       }
+       async function search()
+       {
+            let sv = document.getElementById('search').value;
+            if(sv == '')
+            {
+                clearRows();
+                allData();
+                document.getElementById('search').value = '';
+                document.getElementById('page').value = 1;
+            }
+            else
+            {
+                clearRows();
+                document.getElementById('search').value = sv;
+                let posts = data.filter(item=>{
+                return Object.values(item).join(' ').includes(sv);
+                })
+                if(posts.length > 1)
+                {
+                    document.getElementById('page').value = 1;
+                    data = posts;
+                    maxdata = Math.ceil(data.length/10);
+                    console.log(maxdata)
+                    readData(data);
+                }
+                else
+                {
+                    
+                }
+            }   
+       }
+    </script>
+</head>
+<body onload="val(); allData();">
+    <input type="text" id="search"><button onclick="search()">GO</button>
+   
+    <table border="1" id="table">
+        <tr>
+            <td>Id</td>
+            <td>Title</td>
+            <td>Thumbnail</td>
+            <td>Status</td>
+            <td>Category</td>
+            <td>Action</td>
+        </tr>
+    </table>
+        <button onclick="prev(); val();" id="prev">Prev</button><input type="text" id="page" value="1" readonly><button onclick="next(); val();" id="next">Next</button>
+        
+    <script>
+        function val()
+        {
+            var page = document.getElementById('page');
+            if(page.value == 1){
+                document.getElementById('prev').disabled= true;
+            }
+            else if(page.value == maxdata){
+                document.getElementById('next').disabled = true;
+            }
+            else
+            {
+                document.getElementById('prev').disabled= false;
+                document.getElementById('next').disabled = false;
+            }
+        }
+         
+    </script>
+</body>
+</html>

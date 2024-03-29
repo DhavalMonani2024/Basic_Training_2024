@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Query Point</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dhaval Monani 29/02/2024</h1>   
+    <h4>Welcome to Query Point</h4>
+    <h5>Tables for accessing data</h5>
+    <table border="1">
+        <tr>
+            <td>student_master</td>
+            <td>student_master1</td>
+            <td>result_master</td>
+            <td>attendance_master</td>
+            <td>subject_master</td>
+        </tr>
+    </table>
+    <h5>Please note that table name are case sensitive</h5>
+    <form action="/dqdata" method="post">
+        <table>
+            <tr>
+                <td>Enter Your Query</td>
+                <td><input type="text" name="query"></td>
+                <td><input type="submit" value="submit"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>

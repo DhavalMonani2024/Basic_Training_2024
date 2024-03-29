@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Result</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        table{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2>Name of student is <%= name[0].name %></h2>
+    <h4>Attendance</h4>
+    <table border="1">
+        <tr>
+            <td colspan="3">Attendance</td>
+            <td colspan="3">Result</td>
+        </tr>
+        <tr>
+            <td>December 2023</td>
+            <td>January 2024</td>
+            <td>February 2024</td>
+            <td>Obtain Marks</td>
+            <td>Total Marks</td>
+            <td>Percentage</td>
+        </tr>
+        <% data2.forEach((row)=>{ %>
+            <tr>
+                <td><%= row.DecemberAttendance %></td>
+                <td><%= row.JanuaryAttendance %></td>
+                <td><%= row.FebruaryAttendance %></td>
+        <% }) %>
+        <% data3.forEach((row)=>{ %>
+                <td><%= row.obtainmarks %></td>
+                <td><%= row.totalmarks %></td>
+                <td><%= row.percentage %></td>
+            </tr>
+        <% }) %>
+    </table>
+    <table border="1">
+        <tr>
+            <td rowspan="2">Subject Name</td>
+            <td colspan="2">final</td>
+            <td colspan="2">preliminary</td>
+            <td colspan="2">terminal</td>
+        </tr>
+        <tr>
+            <td>practical</td>
+            <td>theory</td>
+            <td>practical</td>
+            <td>theory</td>
+            <td>practical</td>
+            <td>theory</td>
+        </tr>
+        <% data.forEach((row)=> { %>
+            <tr>
+                <td><%= row.subjectname %></td>
+                <td><%= row.finalpractical %></td>
+                <td><%= row.finaltheory %></td>
+                <td><%= row.preliminarypractical %></td>
+                <td><%= row.preliminarytheory %></td>
+                <td><%= row.Terminalpractical %></td>
+                <td><%= row.Terminaltheory %></td>           
+            </tr>
+        <% }) %>
+    </table>
+    <a href="/result">Back</a>
+</body>
+</html>

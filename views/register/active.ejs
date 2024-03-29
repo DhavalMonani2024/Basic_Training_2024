@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/RegistrationJs/script.js"></script>
+    <link href="/RegistrationCss/style.css" rel="stylesheet">
+</head>
+<body>
+    <h3>24DEV092 DHAVAL MONANI</h3>
+    <h4>Password guidelines</h4>
+    <ul>
+        <li>At least one lowercase alphabet i.e. [a-z]</li>
+        <li>At least one uppercase alphabet i.e. [A-Z]</li>
+        <li>At least one Numeric digit i.e. [0-9]</li>
+        <li>At least one special character i.e. [‘@’, ‘$’, ‘.’, ‘#’, ‘!’, ‘%’, ‘*’, ‘?’, ‘&’, ‘^’]</li>
+        <li>Also, the total length must be in the range [8-15]</li>
+    </ul>
+    <h3 id="message"></h3>
+    <form name="passwordform" id="passwordform" align="center">
+        <table>
+            <tr>
+                <td>Password</td>
+                <td><input type="text" name="password" id="password"></td>
+            </tr>
+            <tr>
+                <td>Confirm Password</td>
+                <td><input type="text" name="confirmpassword" id="confirmpassword"></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><input type="button" value="submit" onclick="validatepassword()" class="button"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

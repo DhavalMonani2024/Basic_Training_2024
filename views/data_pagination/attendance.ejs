@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        table{
+            font-size: 1.1rem;
+            
+        }
+        input[text]{
+            background: none;
+            border:none;
+            text-align: center;
+        }
+    </style>
+    </head>
+<body>
+    <h2>Dhaval Monani 27/02/2024</h2>
+    <h4>Data is of <%= dt%></h4>
+    <form action="/attendance" method="post">
+        <h4>Month
+            <select name="month" id="month">
+                <% if(dt === 'Dec 2023') { %>}
+                    <option value="1" selected>Dec 2023</option>
+                <%} else {%>
+                    <option value="1">Dec 2023</option>
+                <% } %>
+                <% if(dt === 'Jan 2024') { %>}
+                    <option value="2" selected>Jan 2024</option>
+                <%} else {%>
+                    <option value="2" >Jan 2024</option>
+                <% } %>
+                <% if(dt === 'Feb 2024') { %>}
+                    <option value="1" selected>Feb 2024</option>
+                <%} else {%>
+                    <option value="3">Feb 2024</option>
+                <% } %>
+                
+                
+            </select>
+            <input type="submit" value="GO">
+        </h4>
+    </form>
+    <table border="1">
+        <tr>
+            <td>Id</td>
+            <td>FirstName</td>
+            <td>LastName</td>
+            <td>Present</td>
+            <td>Percentage</td>
+        </tr>
+        <% result.forEach( (row) => { %>
+            <tr>
+                <td><%= row.id %></td>
+                <td><%= row.firstname %></td>
+                <td><%= row.lastname %></td>
+                <td><%= row.present %></td>
+                <td><%= row.Percentage %></td>
+            </tr>
+        <% }) %>
+    </table>
+    <table>
+        <tr>
+            <td><a href="/attendance/<%= dt%>/first" id="first"> << </a></td>
+            <td><a href="/attendance/<%= dt%>/prev/<%= Id %>"  id="prev"> < </a></td>
+            <td><input type="text" value="<%= Id %>" id="page" ></td>
+            <td><a href="/attendance/<%= dt%>/next/<%= Id %>"  id="next"> > </a></td>
+            <td><a href="/attendance/<%= dt%>/last" id="last"> >> </a></td>
+        </tr>
+    </table>
+</body>
+  <script>
+       var page = document.getElementById('page');
+       if(page.value == 1){
+          document.getElementById('first').style.pointerEvents = 'none';
+          document.getElementById('prev').style.pointerEvents = 'none';
+       }
+       else if(page.value == 30){
+          document.getElementById('next').style.pointerEvents = 'none';
+          document.getElementById('last').style.pointerEvents = 'none';
+       }
+  </script>
+</html>

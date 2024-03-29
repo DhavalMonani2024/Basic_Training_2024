@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order</title>
+    <style>
+        table{
+            font-size: 0.6rem;
+        }
+        input[text]{
+            background: none;
+            border:none;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <form action="/order" method="post">
+        <h4>Order By options
+            <select name="orderby">
+                <option value="Id">Id</option>
+                <option value="FirstName">Firstname</option>
+                <option value="Middlename">Middlename</option>
+                <option value="LastName">Lastname</option>
+                <option value="Date_of_Birth">Date_of_Birth</option>
+                <option value="Number">Number</option>
+                <option value="Email">Email</option>
+                <option value="Address">Address</option>
+                <option value="City">City</option>
+                <option value="State">State</option>
+                <option value="Country">Country</option>
+                <option value="ZipCode">ZipCode</option>
+                <option value="Blood_Group">Blood_Group</option>
+            </select>
+            <select name="hr">
+                <option value="asc">ASC</option>
+                <option value="desc">DESC</option>
+            </select>
+            <input type="submit" value="submit">
+        </h4>
+    </form>
+    <table border="1">
+        <tr>
+            <td>Id</td>
+            <td>FirstName</td>
+            <td>MiddleName</td>
+            <td>LastName</td>
+            <td>Date_of_Birth</td>
+            <td>Number</td>
+            <td>Email</td>
+            <td>Address</td>
+            <td>City</td>
+            <td>State</td>
+            <td>Country</td>
+            <td>ZipCode</td>
+            <td>Blood_Group</td>
+        </tr>
+        <% result.forEach( (row) => { %>
+            <tr>
+                <td><%= row.Id %></td>
+                <td><%= row.Firstname %></td>
+                <td><%= row.MiddleName %></td>
+                <td><%= row.LastName %></td>
+                <td><%= row.Date_of_Birth %></td>
+                <td><%= row.Number %></td>
+                <td><%= row.Email %></td>
+                <td><%= row.Address %></td>
+                <td><%= row.City %></td>
+                <td><%= row.State %></td>
+                <td><%= row.Country %></td>
+                <td><%= row.ZipCode %></td>
+                <td><%= row.Blood_Group %></td>
+            </tr>
+        <% }) %>
+    </table>
+    <table>
+        <tr>
+            <td><a href="/first/<%= cols%>/<%= hr %>" onclick="first()" id="first"> << </a></td>
+            <td><a href="/prev/<%= Id %>/<%= cols%>/<%= hr %>" onclick="prev()" id="prev"> < </a></td>
+            <td><input type="text" value="<%= Id %>" name="pgno" id="pgno"></td>
+            <td><a href="/next/<%= Id %>/<%= cols%>/<%= hr %>" onclick="next()" id="next"> > </a></td>
+            <td><a href="/last/<%= cols%>/<%= hr %>" onclick="last()" id="last"> >> </a></td>
+        </tr>
+    </table>
+</body>
+</html>

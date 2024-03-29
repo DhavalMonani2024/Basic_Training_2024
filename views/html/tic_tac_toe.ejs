@@ -1,0 +1,337 @@
+<html>
+    <head>
+        <title>Tic Tac Toe</title>
+        <style>
+            table{
+                height: 70%;
+                width:30%;
+                
+            }
+            input{
+                text-decoration: none;
+                border: none;
+            }
+           body{
+            background-color: blanchedalmond;
+           }
+           input{
+            background-color: blanchedalmond;
+           }
+            input[type=text]{
+                color: black;
+                font-size: 25px;
+                font-weight: bolder;
+            }
+            button{
+                height:30%;
+                width:30%;
+            }
+
+        </style>
+        <script type="text/javascript">
+            flag=1;
+            function my_func_c1()
+            {
+                if(flag==1)
+                {
+                    document.getElementById('c1').value = 'X';
+                    document.getElementById('c1').disabled = true;
+                    flag=0;
+                }
+                else
+                {
+                    document.getElementById('c1').value = '0';
+                    document.getElementById('c1').disabled = true;
+                    flag=1;
+                }
+               
+            }
+            function my_func_c2()
+            {
+                if(flag==1)
+                {
+                    document.getElementById('c2').value = 'X';
+                    document.getElementById('c2').disabled = true;
+                    flag=0;
+                }
+                else
+                {
+                    document.getElementById('c2').value = '0';
+                    document.getElementById('c2').disabled = true;
+                    flag=1;
+                }
+            }
+            function my_func_c3()
+            {
+                if(flag==1)
+                {
+                    document.getElementById('c3').value = 'X';
+                    document.getElementById('c3').disabled = true;
+                    flag=0;
+                }
+                else
+                {
+                    document.getElementById('c3').value = '0';
+                    document.getElementById('c3').disabled = true;
+                    flag=1;
+                }
+                
+            }
+            function my_func_c4()
+            {
+                if(flag==1)
+                {
+                    document.getElementById('c4').value = 'X';
+                    document.getElementById('c4').disabled = true;
+                    flag=0;
+                }
+                else
+                {
+                    document.getElementById('c4').value = '0';
+                    document.getElementById('c4').disabled = true;
+                    flag=1;
+                }
+            }
+            function my_func_c5()
+            {
+                if(flag==1)
+                {
+                    document.getElementById('c5').value = 'X';
+                    document.getElementById('c5').disabled = true;
+                    flag=0;
+                }
+                else
+                {
+                    document.getElementById('c5').value = '0';
+                    document.getElementById('c5').disabled = true;
+                    flag=1;
+                }
+            }
+            function my_func_c6()
+            {
+                if(flag==1)
+                {
+                    document.getElementById('c6').value = 'X';
+                    document.getElementById('c6').disabled = true;
+                    flag=0;
+                }
+                else
+                {
+                    document.getElementById('c6').value = '0';
+                    document.getElementById('c6').disabled = true;
+                    flag=1;
+                }
+            }
+            function my_func_c7()
+            {
+                if(flag==1)
+                {
+                    document.getElementById('c7').value = 'X';
+                    document.getElementById('c7').disabled = true;
+                    flag=0;
+                }
+                else
+                {
+                    document.getElementById('c7').value = '0';
+                    document.getElementById('c7').disabled = true;
+                    flag=1;
+                }
+            }
+            function my_func_c8()
+            {
+                if(flag==1)
+                {
+                    document.getElementById('c8').value = 'X';
+                    document.getElementById('c8').disabled = true;
+                    flag=0;
+                }
+                else
+                {
+                    document.getElementById('c8').value = '0';
+                    document.getElementById('c8').disabled = true;
+                    flag=1;
+                }
+            }
+            function my_func_c9()
+            {
+                if(flag==1)
+                {
+                    document.getElementById('c9').value = 'X';
+                    document.getElementById('c9').disabled = true;
+                    flag=0;
+                }
+                else
+                {
+                    document.getElementById('c9').value = '0';
+                    document.getElementById('c9').disabled = true;
+                    flag=1;
+                }
+            }
+            function reset()
+            {
+                location.reload();
+                document.getElementById('c1').value='';
+                document.getElementById('c2').value='';
+                document.getElementById('c3').value='';
+                document.getElementById('c4').value='';
+                document.getElementById('c5').value='';
+                document.getElementById('c6').value='';
+                document.getElementById('c7').value='';
+                document.getElementById('c8').value='';
+                document.getElementById('c9').value='';
+            }
+           
+            
+            function result()
+            {
+                var b1, b2, b3, b4, b5, b6, b7, b8, b9; 
+                b1 = document.getElementById("c1").value; 
+                b2 = document.getElementById("c2").value; 
+                b3 = document.getElementById("c3").value; 
+                b4 = document.getElementById("c4").value; 
+                b5 = document.getElementById("c5").value; 
+                b6 = document.getElementById("c6").value; 
+                b7 = document.getElementById("c7").value; 
+                b8 = document.getElementById("c8").value; 
+                b9 = document.getElementById("c9").value; 
+            
+                var b1btn, b2btn, b3btn, b4btn, b5btn,  
+                    b6btn, b7btn, b8btn, b9btn; 
+                    
+                b1btn = document.getElementById("b1"); 
+                b2btn = document.getElementById("b2"); 
+                b3btn = document.getElementById("b3"); 
+                b4btn = document.getElementById("b4"); 
+                b5btn = document.getElementById("b5"); 
+                b6btn = document.getElementById("b6"); 
+                b7btn = document.getElementById("b7"); 
+                b8btn = document.getElementById("b8"); 
+                b9btn = document.getElementById("b9"); 
+                
+                if ((b1 == 'X') && (b2 == 'X') && (b3 == 'X')) 
+                {
+                    alert('X Won the game');
+                    reset();
+                    
+                }
+                else if ((b4 == 'X') && (b5 == 'X') && (b6 == 'X')) 
+                {
+                    alert('X Won the game');
+                    reset();
+                    
+                }
+                else if ((b7 == 'X') && (b8 == 'X') && (b9 == 'X')) 
+                {
+                    alert('X Won the game');
+                    reset();
+                    
+                }
+                else if ((b1 == 'X') && (b4 == 'X') && (b7 == 'X')) 
+                {
+                    alert('X Won the game');
+                    reset();
+                    
+                }
+                else if ((b2 == 'X') && (b5 == 'X') && (b8 == 'X')) 
+                {
+                    alert('X Won the game');
+                    reset();
+                    
+                }
+                else if ((b3 == 'X') && (b6 == 'X') && (b9 == 'X')) 
+                {
+                    alert('X Won the game');
+                    reset();
+                    
+                }
+                else if ((b1 == 'X') && (b5 == 'X') && (b9 == 'X')) 
+                {
+                    alert('X Won the game');
+                    reset();
+                    
+                }
+                else if ((b3 == 'X') && (b5 == 'X') && (b7 == 'X')) 
+                {
+                    alert('X Won the game');
+                    reset();
+                    
+                }
+                //0 condition
+                else if ((b1 == '0') && (b2 == '0') && (b3 == '0')) 
+                {
+                    alert('0 Won the game');
+                    reset();
+                    
+                }
+                else if ((b4 == '0') && (b5 == '0') && (b6 == '0')) 
+                {
+                    alert('0 Won the game');
+                    reset();
+                    
+                }
+                else if ((b7 == '0') && (b8 == '0') && (b9 == '0')) 
+                {
+                    alert('0 Won the game');
+                    reset();
+                    
+                }
+                else if ((b1 == '0') && (b4 == '0') && (b7 == '0')) 
+                {
+                    alert('0 Won the game');
+                    reset();
+                    
+                }
+                else if ((b2 == '0') && (b5 == '0') && (b8 == '0')) 
+                {
+                    alert('0 Won the game');
+                    reset();
+                    
+                }
+                else if ((b3 == '0') && (b6 == '0') && (b9 == '0')) 
+                {
+                    alert('0 Won the game');
+                    reset();
+                    
+                }
+                else if ((b1 == '0') && (b5 == '0') && (b9 == '0')) 
+                {
+                    alert('0 Won the game');
+                    reset();
+                    
+                }
+                else if ((b3 == '0') && (b5 == '0') && (b7 == '0')) 
+                {
+                    alert('0 Won the game');
+                    reset();
+                    
+                }
+                
+
+            }
+        </script>
+    </head>
+    <body>
+        <h3 align="center">Dhaval Monani</h3>
+        <h4 align="center">Tic Tac Toe</h4>
+        <table border="1" align="center">
+            <tr>
+                <td><input type="text" name="c1" id="c1" onclick="my_func_c1(); result();" readonly></td>
+                <td><input type="text" name="c2" id="c2" onclick="my_func_c2(); result();" readonly></td>
+                <td><input type="text" name="c3" id="c3" class="slr" onclick="my_func_c3(); result();" readonly></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="c4" id="c4" onclick="my_func_c4(); result();" readonly></td>
+                <td><input type="text" name="c5" id="c5" onclick="my_func_c5(); result();" readonly></td>
+                <td><input type="text" name="c6" id="c6" onclick="my_func_c6(); result();" readonly></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="c7" id="c7" class="btm" onclick="my_func_c7(); result();" readonly></td>
+                <td><input type="text" name="c8" id="c8" onclick="my_func_c8(); result();" readonly></td>
+                <td><input type="text" name="c9" id="c9"  onclick="my_func_c9(); result();" readonly></td>
+            </tr>
+            <tr id="lr">
+                <td colspan="3" align="center" class="lr"><button onclick="reset()">reset</button>
+            </tr>
+        </table>
+    </body>
+</html>

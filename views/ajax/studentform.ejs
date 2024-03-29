@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="ajaxcss/style.css" rel="stylesheet">
+    <script src="ajaxjs/script.js" type="text/javascript">
+
+    </script>
+</head>
+<body onload="return verify();">
+    <h1  align="center">Dhaval Monani 24DEV092</h1>
+    <h2 align="center">Job Application Form</h2>
+    <h3 id="message" align="center"></h3>
+    <div class="section">
+        <ul>
+            <li class="sh">Basic Details</li>
+            <li class="sh">Educational Details</li>
+            <li class="sh">Work Experience</li>
+            <li class="sh">Languages/Technologies</li>
+            <li class="sh">References</li>
+            <li class="sh">Preferences</li>
+        </ul>
+    </div>
+    <form  method="post" name="register" id="register">
+    <div id="1">
+    <fieldset>
+        <table>
+            <legend>Basic Details</legend>
+            <tr>
+                <td>Firstname</td>
+                <td><input type="text" name="firstname" id="firstname">
+                </td>
+                <td>Lastname</td>
+                <td><input type="text" name="lastname" id="lastname"></td>
+            </tr>  
+            <tr>
+                <td>Designation</td>
+                <td><input type="text" name="post" id="post"></td>
+                <td>Address1</td>
+                <td><input type="text" name="address1" id="address1"></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="text" name="email" id="email"></td>
+                <td>Address2</td>
+                <td><input type="text" name="address2" id="address2"></td>
+            </tr>
+            <tr>
+                <td>phone number</td>
+                <td><input type="text" name="phone" id="phone"></td>
+                <td>city</td>
+                <td><input type="text" name="city" id="city"></td>
+            </tr>
+            <tr>
+                <td>Gender</td>
+                <td><input type="radio" name="gender" id="male" value="male">male <input type="radio" name="gender" id="female" value="female">female</td>
+                <td>State</td>
+                <td><select name="state" id="state">
+                    <option value="gujarat">gujarat</option>
+                    <option value="rajasthan">rajasthan</option>
+                </select></td>
+                <td>zipcode</td>
+                <td><input type="text" name="zipcode" id="zipcode"></td>
+            </tr>
+            <tr>
+                <td>relationship status</td>
+                <td><select name="rs" id="rs"><option value="unmarried">Unmarried</option><option value="married">married</option></select></td>
+                <td>Date of birth</td>
+                <td><input type="text" name="dob" id="dob"></td>
+            </tr>  
+            </table>  
+    </fieldset>
+    </div>
+    <div id="2" class="hidden">
+        <fieldset>
+            <table>
+            <legend>Educational Details</legend>
+            <tr>
+                <td>10th passing year</td>
+                <td><input type="text" name="sscyear" id="ssc_year"></td>
+                <td>10th board</td>
+                <td><input type="text" name="sscboard" id="ssc_board"></td>
+                <td>10th percentage</td>
+                <td><input type="text" name="sscpercentage" id="ssc_percentage"></td>
+            </tr>
+            <tr>
+                <td>12th passing year</td>
+                <td><input type="text" name="hscyear" id="hsc_year"></td>
+                <td>12th board</td>
+                <td><input type="text" name="hscboard"  id="hsc_board"></td>
+                <td>12th percentage</td>
+                <td><input type="text" name="hscpercentage" id="hsc_percentage"></td>
+            </tr>
+                <td>bachelor course name</td>
+                <td><input type="text" name="bachelorcourse" id="bachelor_degree"></td>
+                <td>bachelor university</td>
+                <td><input type="text" name="bacheloruniversity" id="bachelor_university"></td>
+                <td>bachelor passing year</td>
+                <td><input type="text" name="bachelorpassingyear" id="bachelor_year"></td>
+                <td>bachelor percentage</td>
+                <td><input type="text" name="bachelorpercentage" id="bachelor_percentage"></td>
+            </tr>
+            <tr>
+                <td>master course name</td>
+                <td><input type="text" name="mastercourse" id="master_degree"></td>
+                <td>master university</td>
+                <td><input type="text" name="masteruniversity" id="master_university"></td>
+                <td>master passing year</td>
+                <td><input type="text" name="masterpassingyear" id="master_year"></td>
+                <td>master percentage</td>
+                <td><input type="text" name="masterpercentage" id="master_percentage"></td>
+            </tr>
+            </table>
+        </fieldset>
+    </div>
+    <div class="hidden" id="3">
+    <fieldset>
+        <legend>work experience</legend>
+        <table id="rws">
+            <div >
+            <tr>
+                <td>company name</td>
+                <td><input type="text" name="companyname[]" id="company_name"></td>
+                <td>Designation</td>
+                <td><input type="text" name="designation[]" id="company_designation" ></td>
+                <td>From</td>
+                <td><input type="text" name="from[]" id="from_date"></td>
+                <td>To</td>
+                <td><input type="text" name="to[]" id="to_date"></td>
+            </tr>
+            <tr>
+                <td>company name</td>
+                <td><input type="text" name="companyname[]" id="company_name"></td>
+                <td>Designation</td>
+                <td><input type="text" name="designation[]" id="company_designation"></td>
+                <td>From</td>
+                <td><input type="text" name="from[]" id="from_date"></td>
+                <td>To</td>
+                <td><input type="text" name="to[]" id="to_date"></td>
+            </tr>
+            <tr>
+                <td>company name</td>
+                <td><input type="text" name="companyname[]" id="company_name"></td>
+                <td>Designation</td>
+                <td><input type="text" name="designation[]" id="company_designation"></td>
+                <td>From</td>
+                <td><input type="text" name="from[]" id="from_date"></td>
+                <td>To</td>
+                <td><input type="text" name="to[]" id="to_date"></td>
+            </tr>
+        </div>
+        </table>
+    </fieldset>
+    </div>
+    <div class="hidden" id="4">
+    <table>
+        <tr>
+            <td>
+               <fieldset>
+                <table>
+                    <legend>langauges</legend>
+                    <tr>
+                        <td>
+                            <input type="checkbox" value="hindi" name="hindi" id="hindi" >hindi
+                            <input type="checkbox" name="hindican[]" value="read">read
+                            <input type="checkbox" name="hindican[]" value="write">write
+                            <input type="checkbox" name="hindican[]" value="speak">speak
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" value="english" id="english" name="english">english
+                            <input type="checkbox" name="englishcan[]" value="read">read
+                            <input type="checkbox" name="englishcan[]" value="write">write
+                            <input type="checkbox" name="englishcan[]" value="speak">speak
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="gujarati" value="gujarati" id="gujarati">gujarati
+                            <input type="checkbox" name="gujaratican[]" value="read">read
+                            <input type="checkbox" name="gujaratican[]" value="write">write
+                            <input type="checkbox" name="gujaratican[]" value="speak">speak
+                        </td>
+                    </tr>
+                </table>
+                </fieldset>
+            </td>
+            <td>
+                <fieldset>
+                    <table>
+                     <legend>Technologies</legend>
+                     <tr>
+                        <td>
+                            <input type="checkbox" name="php" value="php" id="php">php
+                            <input type="radio" name="php_level[]" value="Beginner">Beginner
+                            <input type="radio" name="php_level[]" value="moderate">moderate
+                            <input type="radio" name="php_level[]" value="expert">expert
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="mysql" value="mysql" id="mysql">mysql
+                            <input type="radio" name="mysql_level[]" value="Beginner">Beginner
+                            <input type="radio" name="mysql_level[]" value="moderate">moderate
+                            <input type="radio" name="mysql_level[]" value="expert">expert
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="laravel" value="laravel" id="laravel">laravel
+                            <input type="radio" name="laravel_level[]" value="Beginner">Beginner
+                            <input type="radio" name="laravel_level[]" value="moderate">moderate
+                            <input type="radio" name="laravel_level[]" value="expert">expert
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="oracle" value="oracle" id="oracle">oracle
+                            <input type="radio" name="oracle_level[]" value="Beginner">Beginner
+                            <input type="radio" name="oracle_level[]" value="moderate">moderate
+                            <input type="radio" name="oracle_level[]" value="moderate">expert
+                        </td>
+                    </tr>
+                </table>
+                 </fieldset>
+             </td>
+        </tr>
+    </table>
+    </div>
+    <div class="hidden" id="5">
+    <fieldset>
+        <table id="cts">
+            <legend>Reference contact</legend>
+            <tr>
+                <td>name</td>
+                <td><input type="text" name="contactname[]"></td>
+                <td>contact number</td>
+                <td><input type="text" name="contactnumber[]"></td>
+                <td>relation</td>
+                <td><input type="text" name="relation[]"></td>
+            </tr>
+            <tr>
+                <td>name</td>
+                <td><input type="text" name="contactname[]"></td>
+                <td>contact number</td>
+                <td><input type="text" name="contactnumber[]"></td>
+                <td>relation</td>
+                <td><input type="text" name="relation[]"></td>
+            </tr>
+            
+        </table>
+    </fieldset>
+    </div>
+    <div class="hidden" id="6">
+    <fieldset>
+        <table>
+            <legend>preferences</legend>
+            <tr>
+                <td rowspan="3">preferred location</td>
+                <td rowspan="3"><input type="text" name="location" id="prefered_location"></td>
+                <td>notice period</td>
+                <td><input type="text" name="noticeperiod" id="notice_period"></td>
+                <td>department</td>
+                <td>
+                    <select name="department">
+                        <option value="Development">Development</option>
+                        <option value="Design">Design</option>
+                        <option value="Marketing">Marketing</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>expected ctc</td>
+                <td><input type="text" name="expectedctc" id="expected_ctc"></td>
+            </tr>
+            <tr>
+                <td>current ctc</td>
+                <td><input type="text" name="currentctc" id="current_ctc"></td>
+            </tr>                        
+        </table>
+    </fieldset>
+    <table align="center">
+        <tr>
+            <td><input type="button" name="submit" value="submit" id = "submit" onclick="return validate();">
+        </tr>
+    </table>
+    </div>
+</form>
+    <div class="navigate">
+        <input type="hidden" name="pgno" value="1" id="pgno">
+        <input type="button" onclick="return prev();" id="prev" value="prev" hidden><input type="button" onclick="return next();" id="next" value="next">  
+    </div>  
+
+</body>
+</html>

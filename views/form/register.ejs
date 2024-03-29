@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>student form</title>
+    <style>
+        tr, td {
+                    padding-top: 10px;
+                    padding-bottom: 20px;
+                    padding-left: 30px;
+                    padding-right: 40px;
+                }
+    </style>
+    <script src="formjs/script.js"></script>
+</head>
+<body>
+    <h2 align="center">Job Application Form</h2>
+    <h3 id = "message" align="center"></h3>
+    <h3 align="center"><%= message %></h3>
+    <form action="#" method="post" name="register" onsubmit="return validate();">
+        <fieldset>
+            <table>
+                <legend>Basic Details</legend>
+                <tr>
+                    <td>Firstname</td>
+                    <td>
+                        <input type="text" name="firstname" id="firstname" value= 
+                        <% if (basicdetails != undefined ) {%>
+                           "<%= basicdetails.firstname %>"
+                        <% } %>
+                        >
+                    </td>
+                    <td>Lastname</td>
+                    <td><input type="text" name="lastname" id="lastname" value= 
+                        <% if (basicdetails != undefined ) {%>
+                           "<%= basicdetails.lastname %>"
+                        <% } %>
+                        >
+                    </td>
+                </tr>  
+                <tr>
+                    <td>Designation</td>
+                    <td><input type="text" name="post" id="post" value= 
+                        <% if (basicdetails != undefined ) {%>
+                           "<%= basicdetails.post %>"
+                        <% } %>
+                        >
+                    </td>
+                    <td>Address1</td>
+                    <td><input type="text" name="address1" id="address1" value= 
+                        <% if (basicdetails != undefined ) {%>
+                           "<%= basicdetails.address1 %>"
+                        <% } %>
+                        >
+                    </td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td><input type="text" name="email" id="email" value= 
+                        <% if (basicdetails != undefined ) {%>
+                           "<%= basicdetails.email %>"
+                        <% } %>
+                        >
+                    </td>
+                    <td>Address2</td>
+                    <td><input type="text" name="address2" id="address2" value= 
+                        <% if (basicdetails != undefined ) {%>
+                           "<%= basicdetails.address2 %>"
+                        <% } %>
+                        >
+                    </td>
+                </tr>
+                <tr>
+                    <td>phone number</td>
+                    <td><input type="text" name="phonenumber" id="phonenumber" value= 
+                        <% if (basicdetails != undefined ) {%>
+                           "<%= basicdetails.phone %>"
+                        <% } %>
+                        >
+                    </td>
+                    <td>city</td>
+                    <td><input type="text" name="city" id="city" value= 
+                        <% if (basicdetails != undefined ) {%>
+                           "<%= basicdetails.city %>"
+                        <% } %>
+                        >
+                    </td>
+                </tr>
+                <tr>
+                    <td>Gender</td>
+                        <% if (basicdetails != undefined ) {%>
+                            <% if(basicdetails.gender == 'male') { %>
+                                <td><input type="radio" name="gender" value="male" checked>Male<input type="radio" name="gender" value="female">Female</td>
+                            <% } else { %>
+                                <td><input type="radio" name="gender" value="male">Male<input type="radio" name="gender" value="female" checked>Female</td>
+                            <% } %>
+                        <% }else { %>
+                         <td><input type="radio" name="gender" value="male">Male<input type="radio" name="gender" value="female">Female</td>
+                        <% } %>
+                         <td>State</td>
+                    <td><select name="state">
+                        <% if(basicdetails != undefined) { %>
+                            <% if(basicdetails.state == 'gujarat') { %>
+                                <option value="gujarat" selected>gujarat</option>
+                                <option value="rajasthan">rajasthan</option>
+                            <% } if(basicdetails.state == 'rajasthan') { %>
+                                <option value="gujarat">gujarat</option>
+                                <option value="rajasthan" selected>rajasthan</option>
+                            <% } %>
+                        <% }else { %>
+                                <option value="gujarat">gujarat</option>
+                                <option value="rajasthan">rajasthan</option>
+                        <% } %>
+                    </select></td>
+                    <td>zipcode</td>
+                    <td><input type="text" name="zipcode" id="zipcode" value= 
+                        <% if (basicdetails != undefined ) {%>
+                           "<%= basicdetails.zipcode %>"
+                        <% } %>
+                        >
+                    </td>
+                </tr>
+                <tr>
+                    <td>relationship status</td>
+                    <td>
+                        <select name="rs">
+                            <% if (basicdetails != undefined) { %>
+                                <% if(basicdetails.relationship == 'unmarried') { %>
+                                    <option value="unmarried" selected>Unmarried</option>
+                                    <option value="married">married</option>        
+                                <% } if(basicdetails.relationship == 'married') { %>
+                                    <option value="unmarried">Unmarried</option>
+                                    <option value="married" selected>married</option>
+                                <% } %>
+                            <% } %>
+                            <option value="unmarried">Unmarried</option>
+                            <option value="married">married</option>
+                        </select>
+                    </td>
+                    <td>Date of birth</td>
+                    <td><input type="text" name="dob" id="dob" value=
+                        <% if(basicdetails != undefined ) {  %>
+                            "<%= moment(basicdetails.dob).format(shortDateFormat) %>"
+                        <% } %>
+                        >
+                    </td>
+                </tr>  
+                </table>  
+        </fieldset>
+            <fieldset>
+                <table>
+                <legend>Educational Details</legend>
+                <tr>
+                    <td>10th passing year</td>
+                    <td><input type="text" name="sscyear" id="sscyear" value= 
+                        <% if (educationaldetails != undefined ) {%>
+                           "<%= educationaldetails.ssc_year %>"
+                        <% } %>
+                        >
+                    </td>
+                    <td>10th board</td>
+                    <td><input type="text" name="sscboard" id="sscboard" value= 
+                        <% if (educationaldetails != undefined ) {%>
+                           "<%= educationaldetails.ssc_board %>"
+                        <% } %>
+                        ></td>
+                    <td>10th percentage</td>
+                    <td><input type="text" name="sscpercentage" id="sscpercentage" value= 
+                        <% if (educationaldetails != undefined ) {%>
+                           "<%= educationaldetails.ssc_percentage %>"
+                        <% } %>
+                        >
+                    </td>
+                </tr>
+                <tr>
+                    <td>12th passing year</td>
+                    <td><input type="text" name="hscyear" id="hscyear" value= 
+                        <% if (educationaldetails != undefined ) {%>
+                           "<%= educationaldetails.hsc_year %>"
+                        <% } %>
+                        ></td>
+                    <td>12th board</td>
+                    <td><input type="text" name="hscboard" id="hscboard" value= 
+                        <% if (educationaldetails != undefined ) {%>
+                           "<%= educationaldetails.hsc_board %>"
+                        <% } %>
+                        ></td>
+                    <td>12th percentage</td>
+                    <td><input type="text" name="hscpercentage" id="hscpercentage" value= 
+                        <% if (educationaldetails != undefined ) {%>
+                           "<%= educationaldetails.hsc_percentage %>"
+                        <% } %>
+                        ></td>
+                </tr>
+                    <td>bachelor course name</td>
+                    <td><input type="text" name="bachelorcourse" id="bachelorcourse" value= 
+                        <% if (educationaldetails != undefined ) {%>
+                           "<%= educationaldetails.bachelor_degree %>"
+                        <% } %>
+                        ></td>
+                    <td>bachelor university</td>
+                    <td><input type="text" name="bacheloruniversity" id="bacheloruniversity" value= 
+                        <% if (educationaldetails != undefined ) {%>
+                           "<%= educationaldetails.bachelor_university %>"
+                        <% } %>
+                        ></td>
+                    <td>bachelor passing year</td>
+                    <td><input type="text" name="bachelorpassingyear" id="bachelorpassingyear" value= 
+                        <% if (educationaldetails != undefined ) {%>
+                           "<%= educationaldetails.bachelor_year %>"
+                        <% } %>
+                        ></td>
+                    <td>bachelor percentage</td>
+                    <td><input type="text" name="bachelorpercentage" id="bachelorpercentage" value= 
+                        <% if (educationaldetails != undefined ) {%>
+                           "<%= educationaldetails.bachelor_percentage%>"
+                        <% } %>
+                        ></td>
+                </tr>
+                <tr>
+                    <td>master course name</td>
+                    <td><input type="text" name="mastercourse" id="mastercourse" value= 
+                        <% if (educationaldetails != undefined ) {%>
+                            <% if(educationaldetails.master_degree != null) { %>
+                                "<%= educationaldetails.master_degree %>"
+                           <% }if(educationaldetails.master_degree == null) {%>
+                                "" disabled
+                            <%}%>
+                        <% } %>
+                        ></td>
+                    <td>master university</td>
+                    <td><input type="text" name="masteruniversity" id="masteruniversity" value= 
+                        <% if (educationaldetails != undefined ) {%>
+                            <% if(educationaldetails.master_university != null) { %>
+                                "<%= educationaldetails.master_university %>"
+                                <% }if(educationaldetails.master_university == null) {%>
+                                    "" disabled
+                           <% } %>
+                        <% } %>
+                        ></td>
+                    <td>master passing year</td>
+                    <td><input type="text" name="masterpassingyear" id="masterpassingyear" value= 
+                        <% if (educationaldetails != undefined ) {%>
+                            <% if(educationaldetails.master_year != null) { %>
+                                "<%= educationaldetails.master_year %>"
+                            <% }if(educationaldetails.master_year == null) {%>
+                                    "" disabled
+                           <% } %>
+                        <% } %>
+                        ></td>
+                    <td>master percentage</td>
+                    <td><input type="text" name="masterpercentage" id="masterpercentage" value= 
+                        <% if (educationaldetails != undefined ) {%>
+                            <% if(educationaldetails.master_percentage != null) { %>
+                                "<%= educationaldetails.master_percentage %>"
+                            <% }if(educationaldetails.master_percentage == null) {%>
+                                    "" disabled
+                           <% } %>
+                        <% } %>
+                        ></td>
+                </tr>
+                </table>
+            </fieldset>
+            <fieldset>
+                <table>
+                    <legend>work experience</legend>
+                    <% if(experience != undefined) { %>
+                        <% for(var i=0;i<experience.length; i++ ) { %>
+                    <tr>
+                        <td>company name</td>
+                        <td><input type="text" name="companyname[]" value="<%= experience[i].company_name %>">
+                        </td>
+                        <td>Designation</td>
+                        <td><input type="text" name="designation[]" value="<%= experience[i].company_designation %>"></td>
+                        <td>From</td>
+                        <td><input type="text" name="from[]"  value="<%= moment(experience[i].from_date).format(shortDateFormat) %>"></td>
+                        <td>To</td>
+                        <td><input type="text" name="to[]" value="<%= moment(experience[i].to_date).format(shortDateFormat) %>"></td>
+                        <td><input type="hidden" name="eid[]" value="<%= experience[i].eid%>"></td>
+                    </tr>
+                    <% } %>
+                    <% }else { %>
+                    <tr>
+                        <td>company name</td>
+                        <td><input type="text" name="companyname[]"></td>
+                        <td>Designation</td>
+                        <td><input type="text" name="designation[]" ></td>
+                        <td>From</td>
+                        <td><input type="text" name="from[]"></td>
+                        <td>To</td>
+                        <td><input type="text" name="to[]"></td>
+                    </tr>
+                    <tr>
+                        <td>company name</td>
+                        <td><input type="text" name="companyname[]"></td>
+                        <td>Designation</td>
+                        <td><input type="text" name="designation[]" ></td>
+                        <td>From</td>
+                        <td><input type="text" name="from[]"></td>
+                        <td>To</td>
+                        <td><input type="text" name="to[]"></td>
+                    </tr>
+                    <tr>
+                        <td>company name</td>
+                        <td><input type="text" name="companyname[]"></td>
+                        <td>Designation</td>
+                        <td><input type="text" name="designation[]"></td>
+                        <td>From</td>
+                        <td><input type="text" name="from[]"></td>
+                        <td>To</td>
+                        <td><input type="text" name="to[]"></td>
+                    </tr>
+                    <% } %>
+                </table>
+            </fieldset>
+            <table>
+                <tr>
+                    <td>
+                       <fieldset>
+                        <table>
+                            <legend>langauges</legend>
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" value="hindi" name="hindi" id="hindi" <%= languages?.filter( (languages) => {return languages.language_known == 'hindi'}).length > 0?'checked':'' %>>hindi
+                                            <input type="checkbox" name="hindican[]" value="read"  <%= languages?.filter( (languages) => {return languages.can_read == 'y' && languages.language_known == 'hindi'}).length > 0?'checked':'' %>>read
+                                            <input type="checkbox" name="hindican[]" value="write" <%= languages?.filter( (languages) => {return languages.can_write == 'y' && languages.language_known == 'hindi'}).length > 0?'checked':'' %>>write
+                                            <input type="checkbox" name="hindican[]" value="speak" <%= languages?.filter( (languages) => {return languages.can_speak == 'y' && languages.language_known == 'hindi'}).length > 0?'checked':'' %>>speak
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" value="english" id="english" name="english" <%= languages?.filter( (languages) => {return languages.language_known == 'english'}).length > 0?'checked':'' %>>english
+                                            <input type="checkbox" name="englishcan[]" value="read" <%= languages?.filter( (languages) => {return languages.can_read == 'y' && languages.language_known == 'english'}).length > 0?'checked':'' %>>read
+                                            <input type="checkbox" name="englishcan[]" value="write" <%= languages?.filter( (languages) => {return languages.can_write == 'y' && languages.language_known == 'english'}).length > 0?'checked':'' %>>write
+                                            <input type="checkbox" name="englishcan[]" value="speak" <%= languages?.filter( (languages) => {return languages.can_speak == 'y' && languages.language_known == 'english'}).length > 0?'checked':'' %>>speak
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" name="gujarati" value="gujarati" id="gujarati" <%= languages?.filter( (languages) => {return languages.language_known == 'gujarati'}).length > 0?'checked':'' %>>gujarati
+                                            <input type="checkbox" name="gujaratican[]" value="read" <%= languages?.filter( (languages) => {return languages.can_read == 'y' && languages.language_known == 'gujarati'}).length > 0?'checked':'' %>>read
+                                            <input type="checkbox" name="gujaratican[]" value="write" <%= languages?.filter( (languages) => {return languages.can_write == 'y' && languages.language_known == 'gujarati'}).length > 0?'checked':'' %>>write
+                                            <input type="checkbox" name="gujaratican[]" value="speak" <%= languages?.filter( (languages) => {return languages.can_speak == 'y' && languages.language_known == 'gujarati'}).length > 0?'checked':'' %>>speak
+                                        </td>
+                                    </tr>
+                        </table>
+                        </fieldset>
+                    </td>
+                    <td>
+                        <fieldset>
+                            <table>
+                             <legend>Technologies</legend>
+                             <tr>
+                                <td>
+                                    <input type="checkbox" name="php" value="php" id="php"  <%= technologies?.filter( (technologies) => {return technologies.technology_known == 'php'}).length > 0?'checked':'' %>>php
+                                    <input type="radio" name="php_level[]" value="Beginner" <%= technologies?.filter( (technologies) => {return technologies.technology_known == 'php' && technologies.technology_level == 'Beginner'}).length > 0?'checked':'' %>>Beginner
+                                    <input type="radio" name="php_level[]" value="moderate" <%= technologies?.filter( (technologies) => {return technologies.technology_known == 'php' && technologies.technology_level == 'moderate'}).length > 0?'checked':'' %>>moderate
+                                    <input type="radio" name="php_level[]" value="expert" <%= technologies?.filter( (technologies) => {return technologies.technology_known == 'php' && technologies.technology_level == 'expert'}).length > 0?'checked':'' %>>expert
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="mysql" value="mysql" id="mysql" <%= technologies?.filter( (technologies) => {return technologies.technology_known == 'mysql'}).length > 0?'checked':'' %>>mysql
+                                    <input type="radio" name="mysql_level[]" value="Beginner" <%= technologies?.filter( (technologies) => {return technologies.technology_known == 'mysql' && technologies.technology_level == 'Beginner'}).length > 0?'checked':'' %>>Beginner
+                                    <input type="radio" name="mysql_level[]" value="moderate" <%= technologies?.filter( (technologies) => {return technologies.technology_known == 'mysql' && technologies.technology_level == 'moderate'}).length > 0?'checked':'' %>>moderate
+                                    <input type="radio" name="mysql_level[]" value="expert" <%= technologies?.filter( (technologies) => {return technologies.technology_known == 'mysql' && technologies.technology_level == 'expert'}).length > 0?'checked':'' %>>expert
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="laravel" value="laravel" id="laravel" <%= technologies?.filter( (technologies) => {return technologies.technology_known == 'laravel'}).length > 0?'checked':'' %>>laravel
+                                    <input type="radio" name="laravel_level[]" value="Beginner" <%= technologies?.filter( (technologies) => {return technologies.technology_known == 'laravel' && technologies.technology_level == 'Beginner'}).length > 0?'checked':'' %>>Beginner
+                                    <input type="radio" name="laravel_level[]" value="moderate" <%= technologies?.filter( (technologies) => {return technologies.technology_known == 'laravel' && technologies.technology_level == 'moderate'}).length > 0?'checked':'' %>>moderate
+                                    <input type="radio" name="laravel_level[]" value="expert" <%= technologies?.filter( (technologies) => {return technologies.technology_known == 'laravel' && technologies.technology_level == 'expert'}).length > 0?'checked':'' %>>expert
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="oracle" value="oracle" id="oracle" <%= technologies?.filter( (technologies) => {return technologies.technology_known == 'oracle'}).length > 0?'checked':'' %>>oracle
+                                    <input type="radio" name="oracle_level[]" value="Beginner" <%= technologies?.filter( (technologies) => {return technologies.technology_known == 'oracle' && technologies.technology_level == 'Beginner'}).length > 0?'checked':'' %>>Beginner
+                                    <input type="radio" name="oracle_level[]" value="moderate" <%= technologies?.filter( (technologies) => {return technologies.technology_known == 'oracle' && technologies.technology_level == 'moderate'}).length > 0?'checked':'' %>>moderate
+                                    <input type="radio" name="oracle_level[]" value="moderate" <%= technologies?.filter( (technologies) => {return technologies.technology_known == 'oracle' && technologies.technology_level == 'expert'}).length > 0?'checked':'' %>>expert
+                                </td>
+                            </tr>
+                        </table>
+                         </fieldset>
+                     </td>
+                </tr>
+            </table>
+            <fieldset>
+                <table>
+                    <legend>Reference contact</legend>
+                    <% if(references != undefined) { %>
+                        <% for(var i=0;i<references.length; i++ ) { %>
+                    <tr>
+                        <td>name</td>
+                        <td><input type="text" name="contactname[]" value ="<%= references[i].contact_name %>"></td>
+                        <td>contact number</td>
+                        <td><input type="text" name="contactnumber[]" value ="<%= references[i].contact_number %>"></td>
+                        <td>relation</td>
+                        <td><input type="text" name="relation[]" value ="<%= references[i].contact_relation %>"></td>
+                        <td><input type="hidden" name="cid[]" value ="<%= references[i].cid %>"></td>
+                    </tr>
+                    <% } %>
+                    <% }else { %>
+                    <tr>
+                        <td>name</td>
+                        <td><input type="text" name="contactname[]"></td>
+                        <td>contact number</td>
+                        <td><input type="text" name="contactnumber[]"></td>
+                        <td>relation</td>
+                        <td><input type="text" name="relation[]"></td>
+                    </tr>
+                    <tr>
+                        <td>name</td>
+                        <td><input type="text" name="contactname[]"></td>
+                        <td>contact number</td>
+                        <td><input type="text" name="contactnumber[]"></td>
+                        <td>relation</td>
+                        <td><input type="text" name="relation[]"></td>
+                    </tr>
+                    <% } %> 
+                </table>
+            </fieldset>
+            <fieldset>
+                <table>
+                    <legend>preferences</legend>
+                    <tr>
+                        <td rowspan="3">preferred location</td>
+                        <td rowspan="3">
+                            <select name="location">
+                                <% if(preferences != undefined ) { %>
+                                <option value="ahmedabad" <% if(preferences.prefered_location  == 'ahmedabad') {%>
+                                            selected
+                                    <% } %>>Ahmedabad</option>
+                                <option value="rajkot"<% if(preferences.prefered_location  == 'rajkot') {%>
+                                            selected
+                                    <% } %> >Rajkot</option>
+                                <option value="surat" <% if(preferences.prefered_location  == 'surat') {%>
+                                            selected
+                                    <% } %> >Surat</option>
+                                <% } else { %>
+                                    <option value="ahmedabad">Ahmedabad</option>
+                            <option value="rajkot">Rajkot</option>
+                            <option value="surat">Surat</option>
+                                <% } %>
+                            </select>
+                        </td>
+                        <td>notice period</td>
+                        <td><input type="text" name="noticeperiod" id="noticeperiod" value=
+                            <% if(preferences != undefined) {%>
+                                "<%= preferences.notice_period %>"
+                            <% } %>></td>
+                        <td>department</td>
+                        <td>
+                            <select name="department" id="department">
+                                <% if(preferences != undefined) { %>
+                                    <option value="development" <% if(preferences.department  == 'development') {%>
+                                        selected
+                                    <%}%>>Development</option>
+                                    <option value="design"<% if(preferences.department  == 'design') {%>
+                                        selected
+                                    <%}%> >Design</option>
+                                    <option value="marketing" <% if(preferences.department  == 'marketing') {%>
+                                        selected
+                                    <%}%> >Marketing</option>
+                                <% } else { %>
+                                    <option value="development">Development</option>
+                                    <option value="design">Design</option>
+                                    <option value="marketing">Marketing</option>
+                                <% } %> 
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>expected ctc</td>
+                        <td><input type="text" name="expectedctc" id="expectedctc" value=
+                            <% if(preferences != undefined) {%>
+                                "<%= preferences.expected_ctc %>"
+                            <% } %>
+                        >
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>current ctc</td>
+                        <td><input type="text" name="currentctc" id="currentctc" value=
+                            <% if(preferences != undefined) {%>
+                                "<%= preferences.current_ctc %>"
+                            <% } %>
+                            ></td>
+                    </tr>                        
+                </table>
+            </fieldset>
+            <table align="center">
+                <tr>
+                    <td><input type="submit" name="submit" value="submit" ><input type="reset" name="reset" value="reset"></td>
+                </tr>
+            </table>
+    </form>
+</body>
+<script type="text/javascript" src="/public/script.js">
+</script>
+</html>

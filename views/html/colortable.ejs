@@ -1,0 +1,115 @@
+<html>
+    <head>
+        <title>Colour Table</title>
+        <style>
+            table{
+                border-radius: 10px;
+            }
+            td {
+                border-radius: 10px;
+                height:50px;
+                width:50px;
+            }
+            body{
+                background-color: #d9cf8d;
+            }
+        </style>
+        <script>
+            function startgame()
+            {
+               
+                var randomColor = Math.floor(Math.random()*16777215).toString(16);
+                var cells = document.querySelectorAll("td");
+                for(let i=0;i<cells.length;i++)
+                {
+                    cells[i].style.backgroundColor=randomColor;
+                   
+                }
+                let index = Math.floor(Math.random() * cells.length);
+                cells[index].style.opacity=0.7;   
+                cells[index].addEventListener('click',MyFunction,{once:true});
+            }
+            function rc()
+            {
+                let table = document.getElementById('table');
+                if(table.rows.length <9)
+                {
+                    let newrow = document.createElement('tr');
+                    let len = document.getElementById('table').rows[0].cells.length;
+                    for(let i=0;i<len;i++)
+                    {
+                        newrow.appendChild(document.createElement('td'));
+                    }
+                    table.appendChild(newrow);
+                    document.querySelectorAll('tr').forEach(row=>{
+                        let td = document.createElement('td');
+                        row.append(td);
+                    });
+                }
+                 
+                                
+            }
+            function col()
+            {
+                let randomColor = Math.floor(Math.random()*16777215).toString(16);
+                let table = document.getElementById('table');
+                let cells = table.querySelectorAll('td');
+                let n = cells.length;
+                for(let i = 0;i < n;i++)
+                {
+                    cells[i].style.backgroundColor=randomColor;
+                    cells[i].style.opacity=1;
+                  
+                }
+            }
+            function MyFunction()
+            {
+                
+                let score = document.getElementById('score').innerHTML;
+                score++;
+                document.getElementById('score').innerHTML = score;
+                let rl = document.getElementById('table').rows[0].length;
+                rc();
+                col(); 
+                let cells = table.querySelectorAll('td');
+                let index = Math.floor(Math.random() * cells.length);
+                cells[index].style.opacity=0.7;
+                cells[index].addEventListener('click',MyFunction,{once:true});
+
+            }
+            function timer()
+            {
+                let time = 60;
+                let t = document.getElementById('time');
+                const timer = setInterval(()=>{
+                    if(time>0)
+                    {
+                        document.getElementById('time').innerHTML = time;
+                        time--;
+                    }
+                    else
+                    {
+                        alert('times up');
+                        clearInterval(timer);
+                        location.reload();
+                    }
+                },1000);
+                
+            }
+        </script>
+    </head>
+    <body onload="startgame(); timer();">
+        <h3 align="center">Score <p id="score">0</p></h3>
+        <h3 align="center">Time Remaining <p id="time" align="center"></p></h3>
+        <table border="1" border-collapse="collapse" id="table" align="center">
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+        </table> 
+    </body>
+</html>

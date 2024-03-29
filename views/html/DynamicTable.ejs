@@ -1,0 +1,160 @@
+<html>
+    <head>
+        <title>Dynamic Table</title>
+        <style>
+            table.board tr:nth-of-type(odd) td:nth-of-type(odd),
+            table.board tr:nth-of-type(even) td:nth-of-type(even) {
+                background-color:black;
+            }
+
+            table.board tr:nth-of-type(even) td:nth-of-type(odd),
+            table.board tr:nth-of-type(odd) td:nth-of-type(even) {
+            background-color:white;
+            }
+            td{
+                height:50px;
+                width:50px;
+            }
+            
+        </style>
+        <script type="text/javascript">
+            function addcolumn()
+            {
+                let table = document.getElementById('table1');
+                document.querySelectorAll('tr').forEach(row=>{
+                    let td = document.createElement('td');
+                    row.append(td);
+                })
+            }
+            function deletecolumn()
+            {
+                let le = document.getElementById('table1').rows[0].cells.length;
+                if(le == 2)
+                {
+                    alert("Limit Reached");
+                }
+                else
+                {
+                    var allRows = document.getElementById('table1').rows;
+                    for (var i=0; i< allRows.length; i++) {
+                        allRows[i].deleteCell(-1); 
+                    }
+                }
+            }
+            function addrow()
+            {
+                
+                let table = document.getElementById('table1');
+                let newrow = document.createElement('tr');
+                let len=document.getElementById('table1').rows[0].cells.length;
+                for(let i=0;i<len;i++)
+                {
+                    newrow.appendChild(document.createElement('td'));
+                }
+                table.appendChild(newrow);
+            }
+            function deleterow()
+            {
+                    let table = document.getElementById('table1');
+                    let le = table.rows.length;
+                    if(le == 2)
+                    {
+                        alert("Limit Reached");
+                    }
+                    else
+                    {
+                            table.deleteRow(table.rows.length - 1);
+                    }
+                
+            }
+        </script>
+    </head>
+    <body>
+        <h1 align="center">Dhaval Monani 24DEV092 1/2/2024</h1>
+        <h1 id="demo"></h1>
+        <p align="right"><button type="button" name="addcolumn" value="+" onclick="addcolumn()">+</button>/<button type="button" name="deletecolumn" value="-" onclick="deletecolumn()">-</button></p>
+        <table border="1" width="450px" align="center" id="table1" class="board" style="border-collapse: collapse;" >
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        <p align="center"><button type="button" name="addrow" value="+" onclick="addrow()">+</button>/<button type="button" name="deleterow" value="-" onclick="deleterow()">-</button></p>
+    </body>
+</html>

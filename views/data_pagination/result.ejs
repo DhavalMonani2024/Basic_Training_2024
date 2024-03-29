@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        table{
+            font-size: 0.8rem;
+            
+        }
+        input[text]{
+            background: none;
+            border:none;
+            text-align: center;
+        }
+        .btn{
+            text-decoration: none;
+            background-color: aqua;
+            color: black;
+        }
+        .btn:hover{
+            background-color: orange;
+            color: white;
+        }
+    </style>
+    </head>
+<body>
+    <h2>Dhaval Monani 27/02/2024</h2>
+    <table border="1">
+        <tr>
+            <td>
+                <table border="1">
+                    <tr> 
+                        <td>Id</td>
+                        <td>Name</td>
+                        <td>Final Practical</td>
+                        <td>Final Theory</td>
+                    </tr>
+                        <% data.forEach( (row) => { %>
+                    <tr>
+                        <td><%= row.id %></td>
+                        <td><%= row.Name %></td>
+                        <td><%= row.finalpractical %></td>
+                        <td><%= row.finaltheory %></td>
+                    </tr>
+                        <% }) %>
+                </table>
+            </td>
+            <td>
+                <table border="1">
+                    <tr>
+                        <td>Preliminary Practical</td>
+                        <td>Preliminary Theory</td>
+                    </tr>
+                        <% data2.forEach( (row) => { %>
+                    <tr>
+                        <td><%= row.preliminarypractical %></td>
+                        <td><%= row.preliminarytheory %></td>
+                    </tr>
+                        <% }) %>
+                </table>
+            </td>
+            <td>
+                <table border="1">
+                    <tr>
+                        <td>Terminal Practical</td>
+                        <td>Terminal Theory</td>
+                    </tr>
+                    <% data3.forEach( (row) => { %>
+                        <tr>
+                            <td><%= row.terminalpractical %></td>
+                            <td><%= row.terminaltheory %></td>
+                        </tr>
+                            <% }) %>
+                </table>
+            </td>
+            <td>
+                <table border="1">
+                    <tr>
+                        <td>Obtain marks</td>
+                        <td>Total marks</td>
+                        <td>Action</td>
+                    </tr>
+                    <% data4.forEach( (row) => { %>
+                        <tr>
+                            <td><%= row.obtainmarks %></td>
+                            <td><%= row.totalmarks %></td>
+                            <td><a href="/fullresult/<%= row.studentid%>" class="btn">View Result</a></td>
+                        </tr>
+                            <% }) %>
+                </table>
+            </td>   
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td><a href="/result/first" id="first"> << </a></td>
+            <td><a href="/result/prev/<%= Id %>" id="prev"> < </a></td>
+            <td><input type="text" value="<%= Id %>" id="page"></td>
+            <td><a href="/result/next/<%= Id %>" id="next"> > </a></td>
+            <td><a href="/result/last" id="last"> >> </a></td>
+        </tr>
+    </table>
+    <script>
+        var page = document.getElementById('page');
+        if(page.value == 1){
+           document.getElementById('first').style.pointerEvents = 'none';
+           document.getElementById('prev').style.pointerEvents = 'none';
+        }
+        else if(page.value == 30){
+           document.getElementById('next').style.pointerEvents = 'none';
+           document.getElementById('last').style.pointerEvents = 'none';
+        }
+   </script>
+</body>
+</html>

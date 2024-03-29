@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <script src="RegistrationJs/script.js"></script>
+    <link href="RegistrationCss/style.css" rel="stylesheet">
+</head>
+<body >
+    <h1>Welcome to Registration Page</h1>
+    <h3>24DEV092 DHAVAL MONANI</h3>
+    <h4 id="message"></h4>
+    <form method="post" id="register">
+        <table>
+            <tr>
+                <td>FirstName</td>
+                <td><input type="text" name="firstname" id="firstname"></td>
+            </tr>
+            <tr>
+                <td>LastName</td>
+                <td><input type="text" name="lastname" id="lastname"></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="text" name="email" id="email"></td>
+            </tr>
+            <tr>
+                <td>Date of birth</td>
+                <td><input type="text" name="dob" id="dob"></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><input type="button" value="submit" onclick="validate()" class="button"></td>
+            </tr>
+        </table>
+    </form>
+    <h3 class="hidden" id="al"></h3>
+</body>
+</html>

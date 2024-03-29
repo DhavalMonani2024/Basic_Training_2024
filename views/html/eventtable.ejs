@@ -1,0 +1,144 @@
+<html>
+    <head>
+        <title>event handling</title>
+        <script>
+            function uppercase() {
+              const x = document.getElementById("fname");
+              x.value = x.value.toUpperCase();
+            }
+            function mOver(obj) {
+                obj.innerHTML = "Thank You"
+            }
+
+            function mOut(obj) {
+                obj.innerHTML = "Mouse Over Me"
+            }   
+            function mDown(obj) {
+                obj.style.backgroundColor = "#1ec5e5";
+                obj.innerHTML = "Release Me";
+            }
+
+            function mUp(obj) {
+                obj.style.backgroundColor="#D94A38";
+                obj.innerHTML="Thank You";
+            }
+            function fun() {  
+                document.getElementById("heading").style.color = "#D94A38";  
+            }  
+            function func1()
+            {
+                confirm('Are you sure?');
+            }
+            function func2()
+            {
+                alert('Form is Reset');
+            }
+            function con()
+            {
+                const name = document.getElementById('simple');
+                name.value = "KeyPressedUp";
+            }
+            function con2()
+            {
+                const name = document.getElementById('simple');
+                name.value = "default";
+            }
+            function con3()
+            {
+                const name = document.getElementById('keydown');
+                name.value = "KeyPressedDown";
+            }
+            function con4()
+            {
+                const name = document.getElementById('keydown');
+                name.value = "default";
+            }
+            function myFunction(x) {
+                 x.style.background = "yellow";
+            }
+            function func5()
+            {
+               alert('Continue Scrolling!!!');
+            }
+            
+
+            function myFunction1() {
+                document.getElementById("myDIV").addEventListener("wheel", myFunction1);
+                this.style.fontSize = "35px";
+            }
+        </script>
+    </head>
+    <body onload="alert('welcome user!')">
+        <h2 align="center">Event handling Table</h2>
+        <table border="1">
+            <form action="#" method="post" onsubmit="func1()" onreset="func2()">
+            <tr>
+                <td><button type="button" onclick="alert('hello user')">Alert me</button></td>
+                <td>Enter your name:  <input type="text" id="fname" oninput="uppercase()"> </td>
+                <td>
+                    <select name="cricketers" onchange="alert('Cricketer Changed!')">
+                        <option value="Dhoni">Dhoni</option>
+                        <option value="Kohli">Kohli</option>
+                        <option value="Rohit">Rohit</option>
+                        <option value="Gill">Gill</option>
+                        <option value="Pandya">Pandya</option>
+                    </select>
+                </td>
+                <td><div onmouseover="mOver(this)" onmouseout="mOut(this)" 
+                    style="background-color:#D94A38;width:120px;height:20px;padding:40px;">
+                    Mouse Over Me</div>
+                    </td>
+                <td><div onmousedown="mDown(this)" onmouseup="mUp(this)"
+                    style="background-color:#D94A38;width:90px;height:20px;padding:40px;">
+                    Click Me</div></td>
+                <td><h1 id = "heading" ondblclick = "fun()"> Hello world :):) </h1>  </td>
+                <td><input type="text" name="name" onfocus="alert('TextBox focused')"></td>
+                <td>8</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td><input type="text" name="demo" value="Default" onchange="alert('Value changed')"></td>
+                <td>
+                    <input type="text" name="selectedtext" value="Select This Text" onselect="alert('Text Selected')">
+                </td>
+                <td><input type="text" id="simple" value="default" onkeyup="con()" onblur="con2()"></td>
+                <td><input type="text" id="keydown" value="default" onkeydown="con3()" onblur="con4()"></td>
+                <td>6</td>
+                <td><input type="text" onfocusin="myFunction(this)"></td>
+                <td>8</td>
+            </tr>
+            <tr>
+                <td><table border=1 onfocus="alert('Focused inside table')">
+                    <tr><td>Enter Name</td><td><input type="text" name="exam" onfocusin="myFunction(this)"></td></tr>
+                </table></td>
+                <td>2</td>
+                <td><h1 oncopy="alert('Text Copied')" oncut="alert('Content CUtted')" contenteditable="true">Hello How are You!</h1></td>
+                <td> <img src="image.gif" onerror="alert('image not avaialbe')"> </td>
+                <td><input type="text" name="search" onsearch="alert('search facility under construction')"></td>
+                <td>6</td>
+                <td> 
+                    <p onwheel="myFunction1()">Roll the mouse wheel over me!</p>
+                    </div></td>
+                <td>
+                   
+                </td>
+            </tr>
+           <tr>
+                <td colspan="4"><input type="submit" name="submit"></td>
+                <td colspan="4"><input type="reset" name="reset"></td>
+            </tr>
+        </form>
+        </table>
+        <div id="myDIV" style="border:1px solid black" onwheel="myFunction1()" onscroll="func5()">
+            <h6>JavaScript is the world's most popular programming language.</h6>
+            <h6>JavaScript is the programming language of the Web.</h6>
+            <h6>JavaScript is easy to learn.</h6>
+            <h6>This tutorial will teach you JavaScript from basic to advanced.</h6>
+            <h6>Why Study JavaScript?</h6>
+            <h6>JavaScript is one of the 3 languages all web developers must learn:</h6>
+            <h6>1. HTML to define the content of web pages</h6>
+            <h6>2. CSS to specify the layout of web pages</h6>
+            <h6>3. JavaScript to program the behavior of web pages</h6> 
+        </div>
+    </body>
+</html>

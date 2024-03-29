@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Component</title>
+    <style>
+        input[text]{
+            background: none;
+            border:none;
+            text-align: center;
+        }
+    </style>
+    <script type="text/javascript">
+        const max = 5;
+        const min = 1;
+        function first()
+        {
+            document.getElementById('pgno').value = min; 
+        }
+        function last()
+        {
+            document.getElementById('pgno').value = max; 
+        }
+        function next()
+        {
+            let pgno = Number(document.getElementById('pgno').value);   
+            if(pgno === max)
+            {
+                document.getElementById('next').style.opacity = 0.6 ;
+                document.getElementById('last').style.opacity = 0.6 ;
+            }
+            else
+            {
+                document.getElementById('next').style.opacity = 1;
+                document.getElementById('last').style.opacity = 1;
+                document.getElementById('pgno').value = (pgno+1);
+            }
+        }
+        function prev()
+        {
+            let pgno = Number(document.getElementById('pgno').value);   
+            if(pgno === min)
+            {
+                document.getElementById('prev').style.opacity = 0.6 ;
+                document.getElementById('first').style.opacity = 0.6 ;
+            }
+            else
+            {
+                document.getElementById('prev').style.opacity = 1;
+                document.getElementById('first').style.opacity = 1;
+                document.getElementById('pgno').value = (pgno-1);
+            }
+        }
+    </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <td><a href="#" onclick="first()" id="first"> << </a></td>
+            <td><a href="#" onclick="prev()" id="prev"> < </a></td>
+            <td><input type="text" value="1" name="pgno" id="pgno"></td>
+            <td><a href="#" onclick="next()" id="next"> > </a></td>
+            <td><a href="#" onclick="last()" id="last"> >> </a></td>
+        </tr>
+    </table>
+</body>
+</html>
