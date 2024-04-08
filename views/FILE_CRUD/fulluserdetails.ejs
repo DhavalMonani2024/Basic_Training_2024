@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full User Details</title>
+    <style>
+       body{
+           align-items: center;
+           justify-content: center;
+           display: flex;
+           background-color: bisque;
+           flex-direction: column;
+       }
+       tr,td{
+        padding:10px;
+       }
+       .btn{
+           padding:10px;
+           font-size: 1rem;
+           background-color: aqua;
+           border: 1px solid aqua;
+           text-decoration: none;
+       }
+
+       .btn:hover{
+           background-color: orange;
+           color:white;
+           border:1px solid orange;
+       }
+    </style>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <td>FirstName</td>
+            <td>LastName</td>
+            <td>MobileNumber</td>
+            <td>Email</td>
+            <td>Age</td>
+            <td>gender</td>
+            <td>hobbies</td>
+            <td>Address</td>
+        </tr>
+        <tr>
+            <td><%= d[id].firstname %></td>
+            <td><%= d[id].lastname %></td>
+            <td><%= d[id].number %></td>
+            <td><%= d[id].email %></td>
+            <td><%= d[id].age %></td>
+            <td><%= d[id].gender %></td>
+            <td><%= d[id].hobbies %></td>
+            <td><%= d[id].address %></td>
+        </tr>
+    </table>
+    <a href="userdetails" class="btn">Back</a>
+   
+</body>
+</html>

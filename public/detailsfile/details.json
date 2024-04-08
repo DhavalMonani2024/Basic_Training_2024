@@ -1,0 +1,45 @@
+[
+  {
+    "firstname": "Alpesh",
+    "lastname": "Rathod",
+    "age": "21",
+    "number": "2235556623",
+    "email": "ap@gmail.com",
+    "gender": "Male",
+    "hobbies": [
+      "Cricket",
+      "Singing",
+      "Dancing",
+      "Reading"
+    ],
+    "address": "Banaskantha"
+  },
+  {
+    "firstname": "Mihir",
+    "lastname": "Rajpopat",
+    "age": "21",
+    "number": "9087564312",
+    "email": "mr@gmail.com",
+    "gender": "Male",
+    "hobbies": [
+      "Cricket",
+      "Reading"
+    ],
+    "address": "Bhavnagar"
+  },
+  {
+    "firstname": "Aryan",
+    "lastname": "Khanna",
+    "age": "21",
+    "number": "9543839874",
+    "email": "as@gmail.com",
+    "gender": "Male",
+    "hobbies": [
+      "Cricket",
+      "Singing",
+      "Dancing",
+      "Reading"
+    ],
+    "address": "Bhavnagar"
+  }
+]

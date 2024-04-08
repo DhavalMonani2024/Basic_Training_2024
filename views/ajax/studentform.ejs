@@ -161,30 +161,17 @@
                <fieldset>
                 <table>
                     <legend>langauges</legend>
-                    <tr>
-                        <td>
-                            <input type="checkbox" value="hindi" name="hindi" id="hindi" >hindi
-                            <input type="checkbox" name="hindican[]" value="read">read
-                            <input type="checkbox" name="hindican[]" value="write">write
-                            <input type="checkbox" name="hindican[]" value="speak">speak
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="checkbox" value="english" id="english" name="english">english
-                            <input type="checkbox" name="englishcan[]" value="read">read
-                            <input type="checkbox" name="englishcan[]" value="write">write
-                            <input type="checkbox" name="englishcan[]" value="speak">speak
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="checkbox" name="gujarati" value="gujarati" id="gujarati">gujarati
-                            <input type="checkbox" name="gujaratican[]" value="read">read
-                            <input type="checkbox" name="gujaratican[]" value="write">write
-                            <input type="checkbox" name="gujaratican[]" value="speak">speak
-                        </td>
-                    </tr>
+                    <% languages.forEach(language =>{ %>
+                        <tr>
+                            <td>
+                                <input type="checkbox" value="<%=language.languagename%>" name="langauges"><%=language.languagename%>
+                                <input type="checkbox" name="<%=language.languagename%>can[]" value="read">read
+                                <input type="checkbox" name="<%=language.languagename%>can[]" value="write">write
+                                <input type="checkbox" name="<%=language.languagename%>can[]" value="speak">speak
+                            </td>
+                        </tr>
+
+                    <% }) %>
                 </table>
                 </fieldset>
             </td>

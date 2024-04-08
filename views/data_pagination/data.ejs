@@ -53,12 +53,35 @@
     </table>
     <table>
         <tr>
-            <td><a href="/first" onclick="first()" id="first"> << </a></td>
-            <td><a href="/prev/<%= Id %>" onclick="prev()" id="prev"> < </a></td>
-            <td><input type="text" value="<%= Id %>" name="pgno" id="pgno"></td>
-            <td><a href="/next/<%= Id %>" onclick="next()" id="next"> > </a></td>
-            <td><a href="/last" onclick="last()" id="last"> >> </a></td>
+            <td><a href="/sdata/first" onclick="first()" id="first"> << </a></td>
+            <td><a href="/sdata/prev/<%= Id %>" onclick="prev()" id="prev"> < </a></td>
+            <td><input type="text" value="<%= Id %>" name="pgno" id="page"></td>
+            <td><a href="/sdata/next/<%= Id %>" onclick="next()" id="next"> > </a></td>
+            <td><a href="/sdata/last" onclick="last()" id="last" onclick="return maxpg()"> >> </a></td>
+            <td><input type="hidden" name="maxpage" id="maxpage" value="<%= maxpage %>"></td>
         </tr>
     </table>
+    <script>
+        function maxpg()
+        {
+            var max = document.getElementById('maxpage').value;
+            max = max/10;
+            console.log(max);
+        }
+         var max = document.getElementById('maxpage').value;
+            max = max/10;
+            console.log(max);
+        var page = document.getElementById('page').value;
+        if(page == 1)
+        {
+            document.getElementById('prev').style.pointerEvents = "none";
+            document.getElementById('first').style.pointerEvents = "none";
+        }
+        else if(page == max)
+        {
+            document.getElementById('next').style.pointerEvents = "none";
+            document.getElementById('last').style.pointerEvents = "none";
+        }
+    </script>
 </body>
 </html>

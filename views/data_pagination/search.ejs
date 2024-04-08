@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+    <script>
+        function validsearch()
+        {
+            let searchitem = document.getElementById('searchbox').value;
+            if(searchitem == '')
+            {
+                document.getElementById('message').innerHTML = 'PLease Enter atleast one delimeter';
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h3>Welcome to Search Page</h3>
+    <h3 id="message"></h3>
+    <table border="1">
+        <tr>
+            <td>Search Values</td>
+            <td>Search Delimeters</td>
+        </tr>
+        <tr>
+            <td>First Name</td>
+            <td>=</td>
+        </tr>
+        <tr>
+            <td>Middle Name</td>
+            <td>@</td>
+        </tr>
+        <tr>
+            <td>Last Name</td>
+            <td>#</td>
+        </tr>
+        <tr>
+            <td>Number</td>
+            <td>%</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>^</td>
+        </tr>
+    </table>
+    <form method="post">
+       <table border="1">
+        <tr>
+            <td><input type="text" name="search" id="searchbox"></td>
+            <td><input type="submit" value="submit" onclick="return validsearch()"></td>
+        </tr>
+       </table> 
+    </form>    
+    <% if(userdata == ''){ %>
+        <h1>No Data Found</h1>
+    <% } if(userdata != undefined && userdata != '') { %>
+        <table border="1">
+            <tr>
+                <td>Firstname</td>
+                <td>Middlename</td>
+                <td>Lastname</td>
+                <td>Email</td>
+                <td>Gender</td>
+                <td>dob</td>
+                <td>Number</td>
+                <td>City</td>
+                <td>Zipcode</td>
+            </tr>    
+        <% userdata.forEach(row=>{ %>
+            <tr>
+                <td><%= row.firstname %></td>
+                <td><%= row.middlename %></td>
+                <td><%= row.lastname %></td>
+                <td><%= row.email %></td>
+                <td><%= row.gender %></td>
+                <td><%= row.dob %></td>
+                <td><%= row.number %></td>
+                <td><%= row.city %></td>
+                <td><%= row.zipcode %></td>
+            </tr>
+        <% }) %>
+    <% } %>
+
+</body>
+</html>

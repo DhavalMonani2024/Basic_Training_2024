@@ -158,58 +158,58 @@ var pgno = 1;
             if(pgno == 4)
             {
 
-                let hindi = document.getElementById('hindi').checked;
-                let english = document.getElementById('english').checked;
-                let gujarati = document.getElementById('gujarati').checked;
-                if(hindi)
-                {
-                    let hindican = document.getElementsByName("hindican[]");
-                    let hc = [];
-                    for(var i=0;i<hindican.length;i++)
-                    {
-                        hc.push(hindican[i].checked);
-                    }   
-                    if(!hc.includes(true))
-                    {
-                        document.getElementById("message").innerHTML = "Please select value for hindi language";
-                        return false;
-                    }
-                }
-                if(english)
-                {
-                    let englishcan = document.getElementsByName("englishcan[]");
-                    let ec = [];
-                    for(var i=0;i<englishcan.length;i++)
-                    {
-                        ec.push(englishcan[i].checked);
-                    }      
-                    if(!ec.includes(true))
-                    {
-                        document.getElementById("message").innerHTML = "Please select value for english language";
-                        return false;
-                    }
+                // let hindi = document.getElementById('hindi').checked;
+                // let english = document.getElementById('english').checked;
+                // let gujarati = document.getElementById('gujarati').checked;
+                // if(hindi)
+                // {
+                //     let hindican = document.getElementsByName("hindican[]");
+                //     let hc = [];
+                //     for(var i=0;i<hindican.length;i++)
+                //     {
+                //         hc.push(hindican[i].checked);
+                //     }   
+                //     if(!hc.includes(true))
+                //     {
+                //         document.getElementById("message").innerHTML = "Please select value for hindi language";
+                //         return false;
+                //     }
+                // }
+                // if(english)
+                // {
+                //     let englishcan = document.getElementsByName("englishcan[]");
+                //     let ec = [];
+                //     for(var i=0;i<englishcan.length;i++)
+                //     {
+                //         ec.push(englishcan[i].checked);
+                //     }      
+                //     if(!ec.includes(true))
+                //     {
+                //         document.getElementById("message").innerHTML = "Please select value for english language";
+                //         return false;
+                //     }
                 
-                }
-                if(gujarati)
-                {
-                    let gujaratican = document.getElementsByName("gujaratican[]");
-                    let gc = [];
-                    for(var i=0;i<gujaratican.length;i++)
-                    {
-                        gc.push(gujaratican[i].checked);
-                    }   
-                    if(!gc.includes(true))
-                    {
-                        document.getElementById("message").innerHTML = "Please select value for gujarati language";
-                        return false;
-                    }   
+                // }
+                // if(gujarati)
+                // {
+                //     let gujaratican = document.getElementsByName("gujaratican[]");
+                //     let gc = [];
+                //     for(var i=0;i<gujaratican.length;i++)
+                //     {
+                //         gc.push(gujaratican[i].checked);
+                //     }   
+                //     if(!gc.includes(true))
+                //     {
+                //         document.getElementById("message").innerHTML = "Please select value for gujarati language";
+                //         return false;
+                //     }   
                 
-                }
-                if((!hindi) && (!english) && (!gujarati))
-                {
-                    document.getElementById("message").innerHTML = "PLease select any one language";
-                    return false;
-                }
+                // }
+                // if((!hindi) && (!english) && (!gujarati))
+                // {
+                //     document.getElementById("message").innerHTML = "PLease select any one language";
+                //     return false;
+                // }
 
                 let php = document.getElementById('php').checked;
                 let mysql = document.getElementById('mysql').checked;
@@ -468,66 +468,66 @@ var pgno = 1;
                 
                 
                
-                let languages = data.languages;
-                languages.forEach((row=>{
-                    if(row.language_known == 'hindi')
-                    {
-                        document.getElementById('hindi').checked = true;
-                        let opt = document.getElementsByName('hindican[]');
-                        opt.forEach((rw=>{
-                            if(row.can_read == 'y')
-                            {
-                                opt[0].checked = true;  
-                            }
-                            if(row.can_write == 'y')
-                            {
-                                opt[1].checked = true;  
-                            }
-                            if(row.can_speak == 'y')
-                            {
-                                opt[2].checked = true;  
-                            }
-                        }))
-                    }
-                    if(row.language_known == 'english')
-                    {
-                        document.getElementById('english').checked = true;
-                        let opt = document.getElementsByName('englishcan[]');
-                        opt.forEach((rw=>{
-                            if(row.can_read == 'y')
-                            {
-                                opt[0].checked = true;  
-                            }
-                            if(row.can_write == 'y')
-                            {
-                                opt[1].checked = true;  
-                            }
-                            if(row.can_speak == 'y')
-                            {
-                                opt[2].checked = true;  
-                            }
-                        }))
-                    }
-                    if(row.language_known == 'gujarati')
-                    {
-                        document.getElementById('gujarati').checked = true;
-                        let opt = document.getElementsByName('gujaratican[]');
-                        opt.forEach((rw=>{
-                            if(row.can_read == 'y')
-                            {
-                                opt[0].checked = true;  
-                            }
-                            if(row.can_write == 'y')
-                            {
-                                opt[1].checked = true;  
-                            }
-                            if(row.can_speak == 'y')
-                            {
-                                opt[2].checked = true;  
-                            }
-                        }))
-                    }
-                }))
+                // let languages = data.languages;
+                // languages.forEach((row=>{
+                //     if(row.language_known == 'hindi')
+                //     {
+                //         document.getElementById('hindi').checked = true;
+                //         let opt = document.getElementsByName('hindican[]');
+                //         opt.forEach((rw=>{
+                //             if(row.can_read == 'y')
+                //             {
+                //                 opt[0].checked = true;  
+                //             }
+                //             if(row.can_write == 'y')
+                //             {
+                //                 opt[1].checked = true;  
+                //             }
+                //             if(row.can_speak == 'y')
+                //             {
+                //                 opt[2].checked = true;  
+                //             }
+                //         }))
+                //     }
+                //     if(row.language_known == 'english')
+                //     {
+                //         document.getElementById('english').checked = true;
+                //         let opt = document.getElementsByName('englishcan[]');
+                //         opt.forEach((rw=>{
+                //             if(row.can_read == 'y')
+                //             {
+                //                 opt[0].checked = true;  
+                //             }
+                //             if(row.can_write == 'y')
+                //             {
+                //                 opt[1].checked = true;  
+                //             }
+                //             if(row.can_speak == 'y')
+                //             {
+                //                 opt[2].checked = true;  
+                //             }
+                //         }))
+                //     }
+                //     if(row.language_known == 'gujarati')
+                //     {
+                //         document.getElementById('gujarati').checked = true;
+                //         let opt = document.getElementsByName('gujaratican[]');
+                //         opt.forEach((rw=>{
+                //             if(row.can_read == 'y')
+                //             {
+                //                 opt[0].checked = true;  
+                //             }
+                //             if(row.can_write == 'y')
+                //             {
+                //                 opt[1].checked = true;  
+                //             }
+                //             if(row.can_speak == 'y')
+                //             {
+                //                 opt[2].checked = true;  
+                //             }
+                //         }))
+                //     }
+                // }))
                 let technology = data.technologies;
                 technology.forEach((row=>{
                     if(row.technology_known == 'php')

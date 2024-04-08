@@ -58,11 +58,11 @@
     </table>
     <table>
         <tr>
-            <td><a href="/<%= sql %>/first" id="first"><<</a></td>
-            <td><a href="/<%= sql %>/prev/<%= Id %>" id="prev"><</a></td>
+            <td><a href="/dynamicdata/first/<%= sql %>" id="first"><<</a></td>
+            <td><a href="/dynamicdata/prev/<%= sql %>/<%= Id %>" id="prev"><</a></td>
             <td><input type="text" name="page" id="page" value="<%= Id %>"></td>
-            <td><a href="/<%= sql %>/next/<%= Id %>" id="next">></a></td>
-            <td><a href="/<%= sql %>/last" id="last">>></a></td>
+            <td><a href="/dynamicdata/next/<%= sql %>/<%= Id %>" id="next">></a></td>
+            <td><a href="/dynamicdata/last/<%= sql %>" id="last">>></a></td>
             <td><input type="hidden" name="maxpage" id="maxpage" value="<%= max %>"></td>
         </tr>
     </table>

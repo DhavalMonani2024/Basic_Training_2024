@@ -84,7 +84,11 @@
        }
        async function readcomments()
        {
-           
+            let tbl = document.getElementById('comments');
+            if(tbl)
+            {
+                tbl.remove();
+            }
             let data = await fetchcomments();
             if(!data)
             {
@@ -97,6 +101,7 @@
             if(postcomment.length  > 1)
             {
                 let commentstable = document.createElement('table');
+                commentstable.id = 'comments';
                 commentstable.className = 'commenttable';
                 let tr = document.createElement('tr')
                 let ar = [];
@@ -127,7 +132,6 @@
                 message.innerHTML = "Post Has no Comments";
                 document.body.append(message);
             }
-            
         }
     </script>
 </head>

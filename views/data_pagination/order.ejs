@@ -76,12 +76,27 @@
     </table>
     <table>
         <tr>
-            <td><a href="/first/<%= cols%>/<%= hr %>" onclick="first()" id="first"> << </a></td>
-            <td><a href="/prev/<%= Id %>/<%= cols%>/<%= hr %>" onclick="prev()" id="prev"> < </a></td>
-            <td><input type="text" value="<%= Id %>" name="pgno" id="pgno"></td>
-            <td><a href="/next/<%= Id %>/<%= cols%>/<%= hr %>" onclick="next()" id="next"> > </a></td>
-            <td><a href="/last/<%= cols%>/<%= hr %>" onclick="last()" id="last"> >> </a></td>
+            <td><a href="/order/first/<%= cols%>/<%= hr %>" id="first"> << </a></td>
+            <td><a href="/order/prev/<%= Id %>/<%= cols%>/<%= hr %>" id="prev"> < </a></td>
+            <td><input type="text" value="<%= Id %>" name="pgno" id="page"></td>
+            <td><a href="/order/next/<%= Id %>/<%= cols%>/<%= hr %>" id="next"> > </a></td>
+            <td><a href="/order/last/<%= cols%>/<%= hr %>" id="last"> >> </a></td>
+            <td><input type="hidden" name="maxpage" id="maxpage" value="<%= maxpage %>"></td>
         </tr>
     </table>
+    <script>
+        var max = document.getElementById('maxpage').value;
+        var page = document.getElementById('page').value;
+        if(page == 1)
+        {
+            document.getElementById('prev').style.pointerEvents = "none";
+            document.getElementById('first').style.pointerEvents = "none";
+        }
+        else if(page == max)
+        {
+            document.getElementById('next').style.pointerEvents = "none";
+            document.getElementById('last').style.pointerEvents = "none";
+        }
+    </script>
 </body>
 </html>

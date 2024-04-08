@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Details</title>
+    <style>
+        tr, td {
+                       padding-top: 10px;
+                       padding-bottom: 20px;
+                       padding-left: 30px;
+                       padding-right: 40px;
+               }
+       body{
+           align-items: center;
+           justify-content: center;
+           display: flex;
+           flex-direction: column;
+           background-color: bisque;
+       }
+       table{
+           margin-left:150px;
+       }
+
+       .btn{
+           padding:20px;
+           font-size: 1rem;
+           background-color: aqua;
+           border: 1px solid aqua;
+           text-decoration: none;
+       }
+
+       .btn:hover{
+           background-color: orange;
+           color:white;
+           border:1px solid orange;
+       }
+       .action{
+        display: flex;
+        
+        gap:10px;
+       }
+       
+   </style>
+</head>
+<body>
+    <h1>All user data is</h1>
+    <table border="1">
+        <tr>
+            <td>FirstName</td>
+            <td>LastName</td>
+            <td>MobileNumber</td>
+            <td>Email</td>
+            <td>Action</td>
+        </tr>
+        <%for(let i=0;i < d.length;i++){%>
+        <tr>
+            <td><%= d[i].firstname %></td>
+            <td><%= d[i].lastname %></td>
+            <td><%= d[i].number %></td>
+            <td><%= d[i].email %></td>
+            <td class="action"><a href="fulluserdetails?<%= i%>" class="btn">View Details</a> <a href="/delete?<%= i%>" class="btn">Delete Data</a> <a href="/fileupdate?<%= i%>" class="btn">Update Data</a></td>
+        </tr>
+        <%}%>
+    </table>
+    <a href="registerfile" class="btn">Back to Form</a>
+    
+</body>
+</html>
